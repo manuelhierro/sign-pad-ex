@@ -7,7 +7,7 @@ class DesingPad extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      desactivate: true,
+      activated: true,
       buttonColor: ""
     };
 
@@ -15,7 +15,7 @@ class DesingPad extends React.Component {
   }
 
   updateButton = () => {
-    this.setState(prevProps => ({ desactivate: !prevProps.desactivate }));
+    this.setState(prevProps => ({ activated: !prevProps.activated }));
   };
 
   updateColor = buttonColor => {
@@ -23,7 +23,7 @@ class DesingPad extends React.Component {
   };
 
   render() {
-    const desactivate = this.state.desactivate;
+    const activated = this.state.activated;
 
     return (
       <div className="pad">
@@ -31,8 +31,8 @@ class DesingPad extends React.Component {
         <button id="edit_btn" className="pad-edit" onClick={this.updateButton}>
           Edit
         </button>
-        {desactivate === false ? "" : <DesignBoard />}
-        <PadInput />
+        <DesignBoard />
+        <PadInput activated={activated} />
       </div>
     );
   }

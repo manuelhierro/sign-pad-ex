@@ -1,14 +1,14 @@
 import React from "react";
 import "./DesingContainer.css";
 
-const DesignBoard = () => {
+const DesignBoard = props => {
   return (
     <div id="colorbox" className="pad-left">
       <button
         id="bt1"
         className="left-bt-color1"
         value="blue"
-        draggable="true"
+        draggable={props.activated}
         onDragStart={ev => {
           ev.dataTransfer.setData("color", "blue");
         }}
@@ -20,7 +20,7 @@ const DesignBoard = () => {
         id="bt2"
         className="left-bt-color1"
         value="red"
-        draggable="true"
+        draggable={props.activated}
         onDragStart={ev => {
           ev.dataTransfer.setData("color", "red");
         }}
@@ -32,7 +32,7 @@ const DesignBoard = () => {
         id="bt3"
         className="left-bt-color1"
         value="yellow"
-        draggable="true"
+        draggable={props.activated}
         onDragStart={ev => {
           ev.dataTransfer.setData("color", "yellow");
         }}
