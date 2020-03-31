@@ -7,19 +7,12 @@ class DesingPad extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      activated: true,
-      buttonColor: ""
+      activated: true
     };
-
-    this.updateColor = this.updateColor.bind(this);
   }
 
   updateButton = () => {
     this.setState(prevProps => ({ activated: !prevProps.activated }));
-  };
-
-  updateColor = buttonColor => {
-    this.setState({ buttonColor });
   };
 
   render() {
