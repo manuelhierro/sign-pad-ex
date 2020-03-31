@@ -1,41 +1,46 @@
-import React from 'react';
-import './DesingContainer.css';
+import React from "react";
+import "./DesingContainer.css";
 
-const onDrop = (ev, a) => {
- const back_color = a;
- document.getElementById(ev.target.id).style.backgroundColor = back_color;
-}
+const DesignBoard = () => {
+  return (
+    <div id="colorbox" className="pad-left">
+      <button
+        id="bt1"
+        className="left-bt-color1"
+        value="blue"
+        draggable="true"
+        onDragStart={ev => {
+          ev.dataTransfer.setData("color", "blue");
+        }}
+      >
+        Blue
+      </button>
 
-const PadInput = props => {
-    return(
-         <div className='pad-middle'>
-            <h5>Drag and Drop colors:</h5>
-                
-                <div
-                    id = 'mid1' 
-                    onDragOver={e=> {
-                        onDrop(e, props)}}
-                        className='mid-pad-circle1'>
-                </div>
+      <button
+        id="bt2"
+        className="left-bt-color1"
+        value="red"
+        draggable="true"
+        onDragStart={ev => {
+          ev.dataTransfer.setData("color", "red");
+        }}
+      >
+        Red
+      </button>
 
-                <div 
-                    id = 'mid2'
-                    onDragOver={e=> {
-                    onDrop(e, props)}}
-                    className='mid-pad-circle2'>
-                </div>
-
-                <div
-                    id = 'mid3' 
-                    onDragOver={e=> {
-                        onDrop(e, props)}}
-                        className = 'mid-pad-circle3'>
-                </div>
-
-                
-
-         </div>
-    );                    
-}
-
-export default PadInput;
+      <button
+        id="bt3"
+        className="left-bt-color1"
+        value="yellow"
+        draggable="true"
+        onDragStart={ev => {
+          ev.dataTransfer.setData("color", "yellow");
+        }}
+      >
+        Yellow
+      </button>
+      <br />
+    </div>
+  );
+};
+export default DesignBoard;

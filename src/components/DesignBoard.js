@@ -1,56 +1,16 @@
-import React from 'react';
-import './DesingContainer.css';
+import React from "react";
+import "./DesingContainer.css";
+import DesignPad from "./DesignPad";
 
-const handleDragStart = (ev, props) => {
-    const color = ev.target.value;
-      props.updateColor(color);
+const PadInput = () => {
+  return (
+    <div className="pad-middle">
+      <h5>Drag and Drop colors:</h5>
+      <DesignPad className="mid-pad-circle1" />
+      <DesignPad className="mid-pad-circle2" />
+      <DesignPad className="mid-pad-circle3" />
+    </div>
+  );
 };
 
-const DesignBoard = props => {
-    return(
-        <div 
-            id = 'colorbox'
-            className='pad-left'>
-
-            <button 
-                id='bt1'
-                className='left-bt-color1'
-                value = 'blue'
-                draggable = 'true'
-                onDragStart={(ev) => {
-                    handleDragStart(ev, props);
-                }}>
-                    
-                    Blue
-            </button>
-            
-            <button 
-                id='bt2'
-                className='left-bt-color1'
-                value = 'red'
-                draggable = 'true'
-                onDragStart={(ev) => {
-                    handleDragStart(ev, props);
-                }}>
-                    
-                    Red
-            </button>
-            
-            <button 
-                id='bt3'
-                className='left-bt-color1'
-                value = 'yellow'
-                draggable = 'true'
-                onDragStart={(ev) => {
-                    handleDragStart(ev, props);
-                }}>
-                    
-                    Yellow
-            </button>
-            <br />
-        </div>
-
-    );
-
-}
-export default DesignBoard;
+export default PadInput;

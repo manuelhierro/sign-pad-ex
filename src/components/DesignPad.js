@@ -1,60 +1,21 @@
-import React from 'react';
-import './DesingContainer.css';
-import DesignBoard from'./DesignBoard'; 
-import PadInput from './PadInput';
+import React, { useState } from "react";
+import "./DesingContainer.css";
 
-class DesingPad extends React.Component{
-    constructor(props){
-        super(props);
-        this.state = {
-            desactivate: true,
-            buttonColor: ''
-        };
+export default function DesignPad(props) {
+  const [color, setColor] = useState("gray");
 
-        this.updateColor = this.updateColor.bind(this);
-    }
+  return (
+    <div
+      className={props.className}
+      onDragOver={ev => {
+        ev.preventDefault();
+      }}
+      onDrop={ev => {
+        const color = ev.dataTransfer.getData("color");
 
-    updateButton = ev => {
-        const {desactivate} = this.state;
-        if(desactivate === true){
-            this.setState({ desactivate: true});
-    
-        }else {
-            this.setState({ desactivate: false});
-        }
-    };
-
-    updateColor = buttonColor => {
-        this.setState({ buttonColor});
-    }
-
-    render(){
-        const desactivate = this.state;
-        const buttonColor = this.state;
-        const updateButton = this;
-        const updateColor = this;
-        return(
-            <div className= 'pad'>
-                <h1 className='primary,'>Color Board Simulator</h1>
-                <button
-                    id='edit_btn'
-                    className='pad-edit'
-                    onClick={updateButton}
-                 >
-                    Edit
-                </button>
-                {desactivate === false ? ( '' ) : (
-
-                <PadInput 
-                    updateColor={updateColor}
-                />
-                )}
-                <DesignBoard 
-                color={buttonColor}
-                />
-            </div>
-        )
-    }
+        setColor(color);
+      }}
+      style={{ backgroundColor: color }}
+    ></div>
+  );
 }
-
-export default DesingPad;
